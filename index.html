@@ -1,20 +1,28 @@
-<main class="card" id="card">
-  <h1>Oi, Dayane Meu Amor 😅❤️</h1>
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido de Namoro Nerd ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <p class="sub">
-    Eu avisei que ia fazer algo diferente…
-    <br />
-    porque <strong>com você tudo foi diferente</strong>.
-  </p>
+<body>
+  <main class="card" id="card">
+    <h1>Oi, Dayane Meu Amor 😅❤️</h1>
 
-  <section class="box">
-    <p class="question">
-      Então eu resolvi transformar isso em código
-      <br />
-      (porque palavras normais não estavam dando conta).
+    <p class="sub">
+      Eu avisei que ia fazer algo diferente…<br>
+      porque <strong>com você tudo foi diferente</strong>.
     </p>
 
-    <pre style="margin:14px 0; white-space:pre-wrap; color:#e5e7eb;">
+    <section class="box">
+      <p class="question">
+        Então eu resolvi transformar isso em código<br>
+        (porque palavras normais não estavam dando conta).
+      </p>
+
+      <pre>
 if (conhecer_voce) {
   tudo = "mais leve";
   sorriso = verdadeiro;
@@ -24,21 +32,53 @@ if (conhecer_voce) {
 if (voce == Dayane) {
   certeza = "é com você";
 }
-    </pre>
+      </pre>
 
-    <p class="question">
-      Resultado do programa:
-      <br />
-      <strong>eu quero namorar com você ❤️</strong>
-    </p>
+      <p class="question">
+        Resultado do programa:<br>
+        <strong>eu quero namorar com você ❤️</strong>
+      </p>
 
-    <div class="buttons">
-      <button class="btn yes" id="yesBtn">Confirmar esse sim 😍</button>
-      <button class="btn no" id="noBtn">Brincadeira kkk</button>
-    </div>
+      <div class="buttons">
+        <button class="btn yes" id="yesBtn">Confirmar esse sim 😍</button>
+        <button class="btn no" id="noBtn">Brincadeira kkk</button>
+      </div>
 
-    <p class="hint" id="hint">
-      *esse botão de brincadeira não funciona mesmo 😌*
-    </p>
-  </section>
-</main>
+      <p class="hint" id="hint">
+        *esse botão de brincadeira não funciona mesmo 😌*
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const card = document.getElementById("card");
+
+    function moveNoButton() {
+      const rect = card.getBoundingClientRect();
+      const x = Math.random() * (rect.width - noBtn.offsetWidth);
+      const y = Math.random() * (rect.height - noBtn.offsetHeight);
+
+      noBtn.style.position = "absolute";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("click", moveNoButton);
+    noBtn.addEventListener("touchstart", moveNoButton);
+
+    yesBtn.addEventListener("click", () => {
+      card.innerHTML = `
+        <h1>Então é isso ❤️</h1>
+        <p class="sub">
+          Agora é oficial:
+        </p>
+        <p class="question"><strong>Namorados 😍</strong></p>
+        <p class="hint">Prometo te escolher todos os dias.</p>
+      `;
+    });
+  </script>
+</body>
+</html>
